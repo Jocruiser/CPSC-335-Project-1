@@ -1,0 +1,17 @@
+
+
+
+int Greedy_Hamilton_Probem(List of city_distances, List of gas, int mpg)
+{
+    int start = index of the starting point, current_tank = amount of gas avaliable from starting point;
+    
+    for each city in city_distances do 
+    {    
+        int current_tank = calculate quantity of gallons of gas from starting point to current position;
+
+        if(current_tank < 0) then assign start to i + 1 reset and current_tank to 0;
+
+    }
+
+    return the index of the starting point;
+}
