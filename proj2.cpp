@@ -1,10 +1,23 @@
-/*
-Name: Joanna Cruz
-CWID: 888196565
-Email: joannacruz@csu.fullerton.edu
-*/
+
 #include <bits/stdc++.h>
 using namespace std;
+
+/*
+struct Time
+{
+	int hour;
+	int minute;
+	int seconds;
+
+// def constructor 
+Time():Time(0,0,0){}
+Time(int hour, int min, int sec) // assign parameters to const
+{
+	hour = hr;
+	minute = min;
+	seconds = sec;
+}; 
+*/
 
 void mergeArrays (int pers1Schedule[], int pers2Schedule[], int n1, int n2, int arrboth[])
 
@@ -52,10 +65,11 @@ int main() {
 */
 
 int main() {
-	int pers1Schedule[] = {[7:00, 8:30], [12:00, 13:00], [16:00, 18:00]}
-	int n1 = sizeof(pers1schedule) / sizeof(pers1schedule[0]);
+
+	int pers1Schedule[] = {7, 8, 12, 13, 16, 18};
+	int n1 = sizeof(pers1Schedule) / sizeof(pers1Schedule[0]);
 	
-	int pers2Schedule[] = {[9:00, 10:30], [12:20, 14:30], [14:00, 15:00], [16:00, 17:00]}
+	int pers2Schedule[] = {9, 10, 12, 14, 15, 16, 17};
 	int n2 = sizeof(pers2Schedule) / sizeof(pers2Schedule[0]);
 	
 	int arrboth[n1+n2];
