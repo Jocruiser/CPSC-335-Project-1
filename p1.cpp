@@ -32,14 +32,14 @@ OUTPUT:
 */
 
 //this algorithm is assuming that there is always a valid solution.
-int Greedy_Hamilton_Problem(std::vector<int> city_distances_in_miles ,std::vector<int> gas, int mpg)
+int Greedy_Hamilton_Problem(const std::vector<int>& city_distances_in_miles ,const std::vector<int>& gas, int& mpg)
 {
     int start = 0, current_tank = 0; 
     
     for(int i = 0; i < gas.size(); i++)
     {
         // Converting city_distance into gallons and then finding the difference between amount of gas avaliable and city_distance in gallons. 
-        current_tank += gas[i] - city_distances[i] / (float)mpg;
+        current_tank += gas[i] - city_distances_in_miles[i] / (float)mpg;
         
         //if current_tank equals 0 that means current city is not the starting point so try the next city (i+1) as the starting point and reset the tank. 
         if(current_tank < 0)
@@ -55,11 +55,11 @@ int Greedy_Hamilton_Problem(std::vector<int> city_distances_in_miles ,std::vecto
 int main()
 {
     std::vector<int> a;
-    a.push_back(2);
+    a.push_back(5);
     a.push_back(25);
     a.push_back(15);
     a.push_back(10);
-    a.push_back(5);
+    a.push_back(15);
 
     std::vector<int> b;
     b.push_back(1);
@@ -67,8 +67,10 @@ int main()
     b.push_back(1);
     b.push_back(0);
     b.push_back(3);
+    
+    int mpg = 10;
 
-    std::cout << Greedy_Hamilton_Problem(a, b, 10) << std::endl;
+    std::cout << Greedy_Hamilton_Problem(a, b, mpg) << std::endl;
 }
 
 
