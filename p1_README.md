@@ -1,5 +1,7 @@
 # CPSC-335-Project-1
 Algorithm 1
+Group Members: Andres Gallego - andresgallego@csu.fullerton.edu Joanna Cruz - joannacruz@csu.fullerton.edu
+
 - Cities are connected in circular roads
 - Roads run clockwise
 - Use Greedy Approach (most optimal choice at every stage/step)
