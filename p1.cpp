@@ -1,3 +1,9 @@
+/*
+CPSC 335 - Project 1 - Algorithm 1
+Andres Gallego - andresgallego@csu.fullerton.edu
+Joanna Cruz - joannacruz@csu.fullerton.edu 
+*/
+
 #include <iostream>
 #include <vector>
 
