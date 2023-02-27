@@ -1,0 +1,39 @@
+int minutesToTime(int minutes):
+    int hours = minutes / 60;
+    int mins = minutes % 60;
+    return (if hours is < 10 then return "0" else return "") + to_string(hours) + ":" + (if mins is < 10 return "0" else return "") + to_string(mins);
+
+int timeToMinutes(timeStr):
+    int hours = convert the first 2 characters of timeStr to integer;
+    int minutes = convert the 3rd and 4th characters of timeStr to integer;
+    return hours * 60 + minutes;
+
+vector<pair<int,int>> findAvailableTimes(person1_Schedule, person1_DailyAct, person2_Schedule, person2_DailyAct, duration):
+    vector<pair<int,int>> unavailableTimes = create a new empty list of pairs of integers;
+    
+    for slot in person1_Schedule:
+        add a pair of integers (timeToMinutes(slot[0]), timeToMinutes(slot[1])) to unavailableTimes;
+    for slot in person2_Schedule:
+        add a pair of integers (timeToMinutes(slot[0]), timeToMinutes(slot[1])) to unavailableTimes;
+        
+    sort the list unavailableTimes in increasing order;
+    
+    vector<pair<int,int>> availableTimes = create a new empty list of pairs of integers;
+    
+    int begin_time = the maximum value of timeToMinutes(person1_DailyAct[0]) and timeToMinutes(person2_DailyAct[0]);
+    int block_end_time = the minimum value of timeToMinutes(person1_DailyAct[1]) and timeToMinutes(person2_DailyAct[1]);
+    int previous_end_time = begin_time;
+    
+    for slot in unavailableTimes:
+        if slot.first < begin_time or slot.second > block_end_time:
+            skip to the next iteration;
+        
+        else if slot.first - previous_end_time >= duration:
+            add a pair of integers (previous_end_time, slot.first) to availableTimes;
+        
+        previous_end_time = the maximum value of previous_end_time and slot.second;
+    
+    if block_end_time - previous_end_time >= duration:
+        add a pair of integers (previous_end_time, block_end_time) to availableTimes;
+    
+    return availableTimes;
